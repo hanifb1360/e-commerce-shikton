@@ -30,9 +30,7 @@ const Footer = () => {
             and stylish clothing and accessories for men and women. Our team of
             fashion experts is always on the lookout for the latest trends and
             designs, ensuring that we bring you the most fashionable pieces from
-            the hottest brands. Whether you're looking for a chic dress for a
-            special occasion, a statement accessory to elevate your outfit, or a
-            casual everyday look, we've got you covered.
+            the hottest brands.
           </span>
         </div>
         <div className='item'>
@@ -42,9 +40,7 @@ const Footer = () => {
             with the best possible shopping experience, and we welcome any
             feedback or questions you may have. If you have any inquiries about
             our products, orders, shipping, or returns, please don't hesitate to
-            reach out to our customer service team. You can contact us via
-            email, phone, or live chat, and we'll do our best to respond to your
-            inquiry as soon as possible.
+            reach out to our customer service team.
           </span>
           <span>Email: customerservice@shikton.com</span>
           <span>Phone: +1 (555) 123-4567</span>
