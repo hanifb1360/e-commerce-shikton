@@ -1,13 +1,13 @@
 import React from "react";
 import "./FeaturedProducts.scss";
-import whiteshirt1 from "../../resources/images/featuredProducts-pics/white-shirt-1.jpg";
-import whiteshirt2 from "../../resources/images/featuredProducts-pics/white-shirt-2.jpg";
-import bluejacket1 from "../../resources/images/featuredProducts-pics/blue-jacket-1.jpg";
-import bluejacket2 from "../../resources/images/featuredProducts-pics/blue-jacket-2.jpg";
-import blackcoat1 from "../../resources/images/featuredProducts-pics/black-coat-1.jpg";
-import blackcoat2 from "../../resources/images/featuredProducts-pics/black-coat-2.jpg";
-import knitwear1 from "../../resources/images/featuredProducts-pics/knitwear-1.jpg";
-import knitwear2 from "../../resources/images/featuredProducts-pics/knitwear-2.jpg";
+import whiteshirt1 from "../../resources/images/featuredProducts-images/white-shirt-1.jpg";
+import whiteshirt2 from "../../resources/images/featuredProducts-images/white-shirt-2.jpg";
+import bluejacket1 from "../../resources/images/featuredProducts-images/blue-jacket-1.jpg";
+import bluejacket2 from "../../resources/images/featuredProducts-images/blue-jacket-2.jpg";
+import blackcoat1 from "../../resources/images/featuredProducts-images/black-coat-1.jpg";
+import blackcoat2 from "../../resources/images/featuredProducts-images/black-coat-2.jpg";
+import knitwear1 from "../../resources/images/featuredProducts-images/knitwear-1.jpg";
+import knitwear2 from "../../resources/images/featuredProducts-images/knitwear-2.jpg";
 import Card from "../Card/Card";
 
 const FeaturedProduct = ({ type }) => {
