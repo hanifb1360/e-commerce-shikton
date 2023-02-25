@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Products.scss";
 import List from "../../components/List/List";
 import { useParams } from "react-router-dom";
+import bg from "../../resources/images/bg-products.png";
 
 const Products = () => {
-  const param = useParams();
-  console.log(param);
+  const catId = parseInt(useParams().id);
+  const [maxPrice, setMaxPrice] = useState(1000);
+  const [sort, setSort] = useState(null);
+
   return (
     <div className='products'>
       <div className='left'>
@@ -43,8 +46,14 @@ const Products = () => {
           <h2>Filter by price</h2>
           <div className='inputItem'>
             <span>0</span>
-            <input type='range' min={0} max={1000} aria-label='price range' />
-            <span>1000</span>
+            <input
+              type='range'
+              min={0}
+              max={1000}
+              onChange={(e) => setMaxPrice(e.target.value)}
+              aria-label='price range'
+            />
+            <span>{maxPrice}</span>
           </div>
         </div>
         <div className='filterItem'>
@@ -56,6 +65,7 @@ const Products = () => {
               value='asc'
               name='price'
               aria-label='sort by'
+              onChange={(e) => setSort("asc")}
             />
             <label htmlFor='asc'>Price (Lowest first)</label>
           </div>
@@ -66,6 +76,7 @@ const Products = () => {
               value='desc'
               name='price'
               aria-label='sort by'
+              onChange={(e) => setSort("desc")}
             />
             <label htmlFor='desc'>Price (Highest first)</label>
           </div>
@@ -74,10 +85,10 @@ const Products = () => {
       <div className='right'>
         <img
           className='catImg'
-          src=''
+          src={bg}
           alt='It represents the cataloge with a visual element.'
         />
-        <List />
+        <List catId={catId} maxPricePrice={maxPrice} sort={sort} />
       </div>
     </div>
   );

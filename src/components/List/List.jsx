@@ -51,6 +51,45 @@ const List = () => {
       oldPrice: 30,
       price: 20,
     },
+    {
+      id: 5,
+      img: whiteshirt1,
+      img2: whiteshirt2,
+      title: "gert",
+      isNew: true,
+      oldPrice: 19,
+      price: 12,
+    },
+
+    {
+      id: 6,
+      img: bluejacket1,
+      img2: bluejacket2,
+      title: "kert",
+      isNew: true,
+      oldPrice: 45,
+      price: 25,
+    },
+
+    {
+      id: 7,
+      img: blackcoat1,
+      img2: blackcoat2,
+      title: "wert",
+      isNew: true,
+      oldPrice: 32,
+      price: 22,
+    },
+
+    {
+      id: 8,
+      img: knitwear1,
+      img2: knitwear2,
+      title: "zert",
+      isNew: true,
+      oldPrice: 30,
+      price: 20,
+    },
   ];
   return (
     <div className='list'>
