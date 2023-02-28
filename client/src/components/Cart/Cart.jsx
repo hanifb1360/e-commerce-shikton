@@ -1,59 +1,49 @@
 import React from "react";
 import "./Cart.scss";
-import whiteshirt1 from "../../resources/images/featuredProducts-images/white-shirt-1.jpg";
-import whiteshirt2 from "../../resources/images/featuredProducts-images/white-shirt-2.jpg";
-import bluejacket1 from "../../resources/images/featuredProducts-images/blue-jacket-1.jpg";
-import bluejacket2 from "../../resources/images/featuredProducts-images/blue-jacket-2.jpg";
+import { removeItem, resetCart } from "../../redux/cartReducer";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
-  const data = [
-    {
-      id: 1,
-      img: whiteshirt1,
-      img2: whiteshirt2,
-      title: "White Shirt",
-      desc: "This white shirt ",
-      isNew: true,
-      oldPrice: 49,
-      price: 12,
-    },
+  const products = useSelector((state) => state.cart.products);
+  const dispatch = useDispatch();
 
-    {
-      id: 2,
-      img: bluejacket1,
-      img2: bluejacket2,
-      title: "Blue Jacket",
-      desc: "This jacket is made of ",
-      isNew: true,
-      oldPrice: 65,
-      price: 25,
-    },
-  ];
+  const totalPrice = () => {
+    let total = 0;
+    products.forEach((item) => (total += item.quantity * item.price));
+    return total.toFixed(2);
+  };
   return (
     <div className='cart'>
       <h1>Products in your cart</h1>
       {/* The optional chaining operator ?. checks whether data is null or undefined */}
-      {data?.map((item) => (
+      {products?.map((item) => (
         <div className='item' key={item.id}>
           <img
-            src={item.img}
+            src={process.env.REACT_APP_UPLOAD_URL + item.img}
             alt='it represents the product that is chosen to be in the cart'
           />
           <div className='details'>
             <h1>{item.title}</h1>
             <p>{item.desc?.substring(0, 100)}</p>
-            <div className='price'>1 x ${item.price}</div>
+            <div className='price'>
+              {item.quantity} x ${item.price}
+            </div>
           </div>
-          <DeleteOutlinedIcon className='delete' />
+          <DeleteOutlinedIcon
+            className='delete'
+            onClick={() => dispatch(removeItem(item.id))}
+          />
         </div>
       ))}
       <div className='total'>
         <span>SUBTOTAL</span>
-        <span>$123</span>
+        <span>${totalPrice()}</span>
       </div>
       <button>PROCEED TO CHECKOUT</button>
-      <span className='reset'>Reset Cart</span>
+      <span className='reset' onClick={() => dispatch(resetCart())}>
+        Reset Cart
+      </span>
     </div>
   );
 };
