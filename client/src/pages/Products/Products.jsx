@@ -9,11 +9,22 @@ const Products = () => {
   const catId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
   const [sort, setSort] = useState(null);
+  const [selectedSubCats, setSelectedSubCats] = useState([]);
 
   const { data, loading, error } = useFetch(
     `/sub-categories?[filters][categories][id][$eq]=${catId}`
   );
-  console.log(data);
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const isChecked = e.target.checked;
+    setSelectedSubCats(
+      isChecked
+        ? [...selectedSubCats, value]
+        : selectedSubCats.filter((item) => item !== value)
+    );
+  };
+  console.log("selectedSubCats", selectedSubCats);
+
   return (
     <div className='products'>
       <div className='left'>
@@ -25,6 +36,7 @@ const Products = () => {
                 type='checkbox'
                 id={item.id}
                 value={item.id}
+                onChange={handleChange}
                 aria-label='shoes checkbox'
               />
               <label htmlFor={item.id}>{item.attributes.title}</label>
@@ -77,7 +89,12 @@ const Products = () => {
           src={bg}
           alt='It represents the cataloge with a visual element.'
         />
-        <List catId={catId} maxPricePrice={maxPrice} sort={sort} />
+        <List
+          catId={catId}
+          maxPrice={maxPrice}
+          sort={sort}
+          subCats={selectedSubCats}
+        />
       </div>
     </div>
   );
