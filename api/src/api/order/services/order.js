@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * oeder service
+ * order service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::oeder.oeder');
+module.exports = createCoreService('api::order.order');

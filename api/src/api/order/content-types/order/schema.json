@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "oeders",
+  "collectionName": "orders",
   "info": {
-    "singularName": "oeder",
-    "pluralName": "oeders",
+    "singularName": "order",
+    "pluralName": "orders",
     "displayName": "order",
     "description": ""
   },
@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "email": {
-      "type": "string"
-    },
     "stripeId": {
       "type": "text"
     },

@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * oeder router
+ * order router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::oeder.oeder');
+module.exports = createCoreRouter('api::order.order');
