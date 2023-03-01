@@ -1,5 +1,7 @@
 .navbar {
   height: 80px;
+  background-color: #16547a;
+  color: white;
 
   .wrapper {
     padding: 10px 30px;
@@ -27,7 +29,12 @@
       gap: 25px;
 
       .icons {
+        padding: 15px;
+        background-color: white;
         display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
         gap: 15px;
         color: #777;
         cursor: pointer;
@@ -38,7 +45,7 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background-color: #2879fe;
+            background-color: #14aa8a;
             color: white;
             position: absolute;
             right: -10px;

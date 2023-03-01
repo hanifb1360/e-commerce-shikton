@@ -18,14 +18,6 @@ const Navbar = () => {
       <div className='wrapper'>
         <div className='left'>
           <div className='item'>
-            <img
-              src='/img/lang.png'
-              alt='this is an icon to change the language'
-            />
-            <KeyboardArrowDownIcon />
-          </div>
-
-          <div className='item'>
             <span>USD</span>
             <KeyboardArrowDownIcon />
           </div>

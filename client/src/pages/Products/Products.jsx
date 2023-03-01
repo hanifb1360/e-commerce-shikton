@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import "./Products.scss";
-import List from "../../components/List/List";
+import React from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import bg from "../../resources/images/bg-products.png";
+import List from "../../components/List/List";
 import useFetch from "../../hooks/useFetch";
+import "./Products.scss";
 
 const Products = () => {
   const catId = parseInt(useParams().id);
@@ -14,16 +14,28 @@ const Products = () => {
   const { data, loading, error } = useFetch(
     `/sub-categories?[filters][categories][id][$eq]=${catId}`
   );
+
   const handleChange = (e) => {
     const value = e.target.value;
     const isChecked = e.target.checked;
+
     setSelectedSubCats(
       isChecked
         ? [...selectedSubCats, value]
         : selectedSubCats.filter((item) => item !== value)
     );
   };
-  console.log("selectedSubCats", selectedSubCats);
+
+  if (loading) {
+    return (
+      <div className='spinner'>
+        <div className='loader'></div>
+      </div>
+    );
+  }
+  if (error) {
+    return <div className='error'>Error: {error.message}</div>;
+  }
 
   return (
     <div className='products'>
@@ -37,7 +49,6 @@ const Products = () => {
                 id={item.id}
                 value={item.id}
                 onChange={handleChange}
-                aria-label='shoes checkbox'
               />
               <label htmlFor={item.id}>{item.attributes.title}</label>
             </div>
@@ -52,7 +63,6 @@ const Products = () => {
               min={0}
               max={1000}
               onChange={(e) => setMaxPrice(e.target.value)}
-              aria-label='price range'
             />
             <span>{maxPrice}</span>
           </div>
@@ -65,7 +75,6 @@ const Products = () => {
               id='asc'
               value='asc'
               name='price'
-              aria-label='sort by'
               onChange={(e) => setSort("asc")}
             />
             <label htmlFor='asc'>Price (Lowest first)</label>
@@ -76,7 +85,6 @@ const Products = () => {
               id='desc'
               value='desc'
               name='price'
-              aria-label='sort by'
               onChange={(e) => setSort("desc")}
             />
             <label htmlFor='desc'>Price (Highest first)</label>
@@ -86,8 +94,8 @@ const Products = () => {
       <div className='right'>
         <img
           className='catImg'
-          src={bg}
-          alt='It represents the cataloge with a visual element.'
+          src='https://images.pexels.com/photos/1074535/pexels-photo-1074535.jpeg?auto=compress&cs=tinysrgb&w=1600'
+          alt=''
         />
         <List
           catId={catId}
