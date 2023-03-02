@@ -18,29 +18,21 @@ const Navbar = () => {
       <div className='wrapper'>
         <div className='left'>
           <div className='item'>
-            <span>USD</span>
-            <KeyboardArrowDownIcon />
-          </div>
-
-          <div className='item'>
             <Link className='link' to='/products/1'>
               Women
             </Link>
-            <KeyboardArrowDownIcon />
           </div>
 
           <div className='item'>
             <Link className='link' to='/products/2'>
               Men
             </Link>
-            <KeyboardArrowDownIcon />
           </div>
 
           <div className='item'>
             <Link className='link' to='/products/3'>
               Children
             </Link>
-            <KeyboardArrowDownIcon />
           </div>
         </div>
         <div className='center'>

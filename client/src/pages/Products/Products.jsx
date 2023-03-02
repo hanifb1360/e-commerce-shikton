@@ -6,15 +6,17 @@ import useFetch from "../../hooks/useFetch";
 import "./Products.scss";
 
 const Products = () => {
-  const catId = parseInt(useParams().id);
+  const catId = parseInt(useParams().id); // get category ID from URL parameter and convert it to integer
   const [maxPrice, setMaxPrice] = useState(1000);
   const [sort, setSort] = useState(null);
   const [selectedSubCats, setSelectedSubCats] = useState([]);
 
+  // fetch subcategories based on the category ID
   const { data, loading, error } = useFetch(
     `/sub-categories?[filters][categories][id][$eq]=${catId}`
   );
 
+  // handle change in the selected subcategories
   const handleChange = (e) => {
     const value = e.target.value;
     const isChecked = e.target.checked;
@@ -27,11 +29,7 @@ const Products = () => {
   };
 
   if (loading) {
-    return (
-      <div className='spinner'>
-        <div className='loader'></div>
-      </div>
-    );
+    return <div className='loader'></div>;
   }
   if (error) {
     return <div className='error'>Error: {error.message}</div>;
